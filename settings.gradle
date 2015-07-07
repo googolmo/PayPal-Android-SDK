@@ -1,1 +1,1 @@
-include ':paypal-android', ':SampleApp'
+include ':paypal-android', ':paypal-android-without-so', ':SampleApp'
