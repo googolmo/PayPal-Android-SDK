@@ -5,10 +5,10 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.github.dcendents.android-maven'
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(dir: '../libs', include: ['*.jar'])
 }
 
-version = '2.9.8'
+version = '2.9.11'
 group = project.GROUP
 
 android {
@@ -18,7 +18,7 @@ android {
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 22
-        versionName '2.9.8'
+        versionName '2.9.11'
         versionCode 1
     }
 
@@ -34,6 +34,13 @@ android {
         // if true, generate an HTML report (with issue explanations, sourcecode, etc)
         htmlReport true
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['../libs']
+        }
+    }
+
 }
 
 apply from: 'https://raw.githubusercontent.com/googolmo/gradle-mvn-push/master/bintray.gradle'
