@@ -81,8 +81,8 @@ The SDK will now use the newest version of the PayPal Wallet App if present on t
 
 or
 
-    compile 'im.amomo.paypal:paypal-android:2.9.8@aar'
-    compile 'im.amomo.paypal:paypal-android-without-so:2.9.8@aar'
+    compile 'im.amomo.paypal:paypal-android:2.9.11@aar'
+    compile 'im.amomo.paypal:paypal-android-without-so:2.9.11@aar'
 
 ## Credentials
 
