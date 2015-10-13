@@ -1,6 +1,14 @@
 PayPal Android SDK release notes
 ================================
 
+2.10.1
+------
+* Minor bug fixes.
+
+2.10.0
+------
+* Fixed behavior where `retrieve_shipping_address ` is disabled and no `shipping address` is provided from the app, so it will not default to the PayPal account `shipping address`.
+
 2.9.11
 ------
 * Minor bug fixes.
