@@ -68,15 +68,14 @@ The SDK will now use the newest version of the PayPal Wallet App if present on t
 
 ## Requirements
 
-* Android 2.2 or later
-* card.io card scanning available only on armv7 devices
+* Android 2.3.3 (API 10) or later
 * Phone or tablet
 
 
 ## Add the SDK to Your Project
 
 1. Download or clone this repo. The SDK includes a .jar, static libraries, release notes, and license acknowledgements. It also includes a sample app.
-2. Copy the contents of the SDK `libs` directory into your project's `libs` directory. The path to these files is important; if it is not exactly correct, the SDK will not work.  (_NOTE:_ If you are using Gradle, copy SDK jar file into your project's `libs` directory, `add as library` to project, and finally copy the SDK folders containing the *.so files into `src/main/jniLibs`.)
+2. Copy the contents of the SDK `libs` directory into your project's `libs` directory. The path to these files is important; if it is not exactly correct, the SDK will not work.  (_NOTE:_ When using Gradle, copy SDK jar file into your project's `libs` directory, `add as library` to project, and finally copy the SDK folders containing the *.so files into `src/main/jniLibs`.)
 3. Add the open source license acknowledgments from `acknowledgments.md` to your app's acknowledgments.
 
 or
@@ -122,7 +121,7 @@ If your app initiates a transaction with a currency that turns out to be unsuppo
 
 ## Disabling card.io card scanning
 
-Future payments does not require card.io card scanning, so it is safe to remove the camera scanner libraries by removing the following folders within the `lib` directory: `armeabi`, `armeabi-v7a`, `mips`, and `x86`.
+Future payments does not require card.io card scanning, so it is safe to remove the camera scanner libraries by removing the following folders within the `lib` directory: `arm64-v8a`, `armeabi`, `armeabi-v7a`, `mips`, `x86`, `x86_64`.
 
 Single Payments can be configured to accept credit cards through manual entry, but without card scanning.  To do so, remove the same libs above, and remove `android.permission.CAMERA` and `android.permission.VIBRATE` permissions from `AndroidManifest.xml`.  If you wish to disable credit card support altogether, follow the above steps to reduce the permissions and sdk footprint, and add the following to the `PayPalConfiguration` initialization:
 ```
@@ -145,18 +144,6 @@ During development, use `environment()` in the `PayPalConfiguration` object to c
 ## Usability
 
 User interface appearance and behavior is set within the library itself. For the sake of usability and user experience consistency, apps should not attempt to modify the SDK's behavior beyond the documented methods.
-
-
-## Dependency Conflicts
-
-The Android SDK is built on top of the [Apache HttpComponents](http://hc.apache.org/) library included within Android.  This can lead to a conflict if you provide your own copy of either Apache's [httpclient](http://hc.apache.org/httpcomponents-client-4.3.x/index.html), [httpcore](http://hc.apache.org/httpcomponents-core-4.3.x/index.html), or a package that depends on either of these, such as [httpmime](http://hc.apache.org/httpcomponents-client-4.3.x/httpmime/project-reports.html).  To resolve this, you must use [httpclient-android](http://hc.apache.org/httpcomponents-client-4.3.x/android-port.html) instead of httpcore and httpclient.  The following example is the Android equivalent of the httpmime, httpcore, and httpclient dependencies:
-
-```
-compile ('org.apache.httpcomponents:httpclient-android:4.3.5')
-compile ('org.apache.httpcomponents:httpmime:4.3.6') {
-    exclude(group: 'org.apache.httpcomponents', module: 'httpclient')
-}
-```
 
 
 ## Moving to PayPal Android SDK 2.0

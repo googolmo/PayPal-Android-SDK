@@ -1,6 +1,21 @@
 PayPal Android SDK release notes
 ================================
 
+2.11.1
+------
+* Fix crash in `PayPalService.onDestroy()` [#212](https://github.com/paypal/PayPal-Android-SDK/issues/212).
+* Fix case where shipping address selections were inadvertently displayed to the user [#213](https://github.com/paypal/PayPal-Android-SDK/issues/213).
+* Decrease minSdkVersion back down to 10 (GINGERBREAD_MR1).
+* Convert SampleApp to only use Gradle builds.
+
+2.11.0
+------
+* Target Android 23 (M).
+* Update card.io to 5.1.1 (supports new Android 23 Permissions). Note: this version of card.io contains support for more processor archictures.  Please be sure to grab the entire contents of this SDK, including all up-to-date card.io `*.so` files within the `/libs` folder to ensure that card.io will continue to work on these architectures.
+* Increase minSdkVersion to 11 (HONEYCOMB).
+* Update all networking to use HttpURLConnection instead of Apache's HTTP Client.
+* Set all obfuscated classes to use lower case as a workaround for [an Android Tools issue](https://code.google.com/p/android/issues/detail?id=187210).
+
 2.10.1
 ------
 * Minor bug fixes.
